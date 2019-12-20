@@ -43,7 +43,7 @@ describe '#Word' do
     end
   end
 
-  describe('.find') do
+  describe('#find') do
     it("finds a word by the id") do
       word = Word.new("Hello", nil)
       word.save()
@@ -52,5 +52,16 @@ describe '#Word' do
       expect(Word.find(word.id)).to(eq(word))
     end
   end
+
+  describe('#delete') do
+  it("deletes an word by id") do
+    word = Word.new("Hello", nil)
+    word.save()
+    word2 = Word.new("Goodbye", nil)
+    word2.save()
+    word.delete()
+    expect(Word.all).to(eq([word2]))
+  end
+end
 
 end
