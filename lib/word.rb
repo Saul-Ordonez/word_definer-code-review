@@ -5,8 +5,8 @@ class Word
   @@total_rows = 0
 
   def initialize(word, id)
-    @id = id || @@total_rows += 1
     @word = word
+    @id = id || @@total_rows += 1
   end
 
   def self.all
@@ -17,4 +17,9 @@ class Word
     @@words = {}
     @@total_rows = 0
   end
+
+  def save
+  @@words[self.id] = Word.new(self.word, self.id)
+end
+
 end
