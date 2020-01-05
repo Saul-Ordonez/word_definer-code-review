@@ -54,23 +54,23 @@ describe '#Word' do
   end
 
   describe('#delete') do
-  it("deletes a word by id") do
-    word = Word.new("Hello", nil, "How are you?")
-    word.save()
-    word2 = Word.new("Goodbye", nil, "See you later")
-    word2.save()
-    word.delete()
-    expect(Word.all).to(eq([word2]))
+    it("deletes a word by id") do
+      word = Word.new("Hello", nil, "How are you?")
+      word.save()
+      word2 = Word.new("Goodbye", nil, "See you later")
+      word2.save()
+      word.delete()
+      expect(Word.all).to(eq([word2]))
+    end
   end
-end
 
-describe('#update') do
-   it("updates a word by id") do
-     word = Word.new("Hello", nil, nil)
-     word.save()
-     word.update("Goodbye", nil, nil)
-     expect(word.word).to(eq("Goodbye"))
-   end
- end
+  describe('#update') do
+    it("updates a word by id") do
+      word = Word.new("Hello", nil, nil)
+      word.save()
+      word.update("Goodbye", nil, nil)
+      expect(word.word).to(eq("Goodbye"))
+    end
+  end
 
 end
