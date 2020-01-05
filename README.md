@@ -23,9 +23,6 @@ POST | /words/:id/definitions/:definition_id | CREATE | Adds a new definition to
 PATCH | /words/:id/definitions/:definition_id | UPDATE | Updates a definition
 DELETE | /words/:id/definitions/:definition_id | DELETE | Deletes a definition from the list
 
-### Known Bugs
-#### None
-
 ## Setup/Installation Requirements
 
 * Clone GitHub project repository onto desktop
@@ -33,7 +30,7 @@ DELETE | /words/:id/definitions/:definition_id | DELETE | Deletes a definition f
 * Run bundle in your terminal to install appropriate Ruby Gems
 * run $ **ruby app.rb** in your terminal
 * internet service required when cloning project repository onto local computer.
-* You can find this project deployed on Heroku @ [here](heroku link here)
+* You can find this project deployed on Heroku @ [here](https://infinite-tundra-66704.herokuapp.com/)
 
 ## Known Bugs
 
