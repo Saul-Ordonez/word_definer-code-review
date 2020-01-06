@@ -64,14 +64,14 @@ describe '#Word' do
     end
   end
 
-  # describe('#update') do
-  #   it("updates a word by id") do
-  #     word = Word.new("Hello", nil, "How are you?")
-  #     word.save()
-  #     word.update("Goodbye", "See you later")
-  #     expect(word.word).to(eq("Goodbye"))
-  #   end
-  # end
+  describe('#update') do
+    it("updates a word by id") do
+      word = Word.new("Hello", nil, "How are you?")
+      word.save()
+      word.update("Goodbye", "See you later")
+      expect(word.word).to(eq("Goodbye"))
+    end
+  end
 
   describe('.search') do
     it("finds a word") do
