@@ -1,0 +1,25 @@
+
+<h2>Make up some words and their definitions here!</h2>
+
+<h2><center>Your Words:</center></h2>
+
+<% if @words.any? %>
+<% @words.each do |word| %>
+<h3><a href="/words/<%= word.id %>"><%= word.word_name %></a></h3>
+<% end %>
+<% else %>
+<h4>You need to add some words!</h4>
+<% end %>
+
+<form action="/words/new" method="get">
+  <button type="submit" name="new">Add a new word here</button>
+</form>
+<br>
+
+<h3>Word Search</h3>
+<form action="/words">
+  <div class="form-group">
+    <input id="search" name="search" type="text">
+  </div>
+  <button type="submit">Add your word!</button>
+</form>
