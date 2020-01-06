@@ -35,9 +35,14 @@ class Word
     @@words.delete(self.id)
   end
 
-  def update(word, id, definition)
-    @word = (word != '') ? word : @word
-    @definition = (definition != '') ? definition : @definition
+  def update(word, definition)
+    self.word = word
+    self.definition = definition
+    @@words[self.id] = Word.new(self.word, self.id, self.definition)
   end
+
+  def self.search(word)
+   @@words.values.select { |word| /#{word}/i.match? word.word }
+ end
 
 end

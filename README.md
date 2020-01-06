@@ -30,7 +30,7 @@ DELETE | /words/:id/definitions/:definition_id | DELETE | Deletes a definition f
 * Run bundle in your terminal to install appropriate Ruby Gems
 * run $ **ruby app.rb** in your terminal
 * internet service required when cloning project repository onto local computer.
-* You can find this project deployed on Heroku @ [here](https://infinite-tundra-66704.herokuapp.com/)
+* You can find this project deployed on Heroku [at this link](https://infinite-tundra-66704.herokuapp.com/)
 
 ## Known Bugs
 

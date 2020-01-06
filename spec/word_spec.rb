@@ -9,7 +9,7 @@ describe '#Word' do
   end
 
   describe('.all') do
-    it('return empty array if there are no words to display') do
+    it('returns empty array if there are no words to display') do
       expect(Word.all).to(eq([]))
     end
   end
@@ -64,12 +64,22 @@ describe '#Word' do
     end
   end
 
-  describe('#update') do
-    it("updates a word by id") do
-      word = Word.new("Hello", nil, nil)
+  # describe('#update') do
+  #   it("updates a word by id") do
+  #     word = Word.new("Hello", nil, "How are you?")
+  #     word.save()
+  #     word.update("Goodbye", "See you later")
+  #     expect(word.word).to(eq("Goodbye"))
+  #   end
+  # end
+
+  describe('.search') do
+    it("finds a word") do
+      word = Word.new("Hello", nil, "How are you?")
       word.save()
-      word.update("Goodbye", nil, nil)
-      expect(word.word).to(eq("Goodbye"))
+      word2 = Word.new("Goodbye", nil, "See you later")
+      word2.save()
+      expect(Word.search(word.word)).to(eq([word]))
     end
   end
 
