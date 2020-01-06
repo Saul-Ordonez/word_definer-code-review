@@ -66,10 +66,10 @@ describe '#Word' do
 
   describe('#update') do
     it("updates a word by id") do
-      word = Word.new("Hello", nil, "How are you?")
-      word.save()
-      word.update("Goodbye", "See you later")
-      expect(word.word).to(eq("Goodbye"))
+      new_word = Word.new("Hello", nil, "How are you?")
+      new_word.save()
+      new_word.update("Goodbye", "See you later")
+      expect(new_word.word).to(eq("Goodbye"))
     end
   end
 
