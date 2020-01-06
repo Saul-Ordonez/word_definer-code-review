@@ -41,8 +41,8 @@ class Word
     @@words[self.id] = Word.new(self.word, self.id, self.definition)
   end
 
-  def self.search(word)
-   @@words.values.select { |word| /#{word}/i.match? word.word }
+  def self.search(x)
+   @@words.values().select { |word| /#{x}/i.match? word.word }
  end
 
 end
