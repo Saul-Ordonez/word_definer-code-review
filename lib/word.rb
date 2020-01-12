@@ -31,15 +31,16 @@ class Word
     @@words[id]
   end
 
+  def update(word, definition)
+    @word = word
+    @definition = definition
+    @@words[self.id] = Word.new(@word, self.id, @definition)
+  end
+
   def delete
     @@words.delete(self.id)
   end
 
-  def update(word, definition)
-    self.word = word
-    self.definition = definition
-    @@words[self.id] = Word.new(self.word, self.id, self.definition)
-  end
 
   def self.search(x)
    @@words.values().select { |word| /#{x}/i.match? word.word }
