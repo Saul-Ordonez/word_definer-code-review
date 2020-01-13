@@ -1,13 +1,12 @@
 class Word
-  attr_reader :word, :id, :definition
+  attr_reader :word, :id
 
   @@words = {}
   @@total_rows = 0
 
-  def initialize(word, id, definition)
+  def initialize(word, id)
     @word = word
     @id = id || @@total_rows += 1
-    @definition = definition
   end
 
   def self.all
@@ -20,7 +19,7 @@ class Word
   end
 
   def save
-    @@words[self.id] = Word.new(self.word, self.id, self.definition)
+    @@words[self.id] = Word.new(self.word, self.id)
   end
 
   def ==(word_to_compare)
@@ -31,10 +30,9 @@ class Word
     @@words[id]
   end
 
-  def update(word, definition)
+  def update(word)
     @word = word
-    @definition = definition
-    @@words[self.id] = Word.new(@word, self.id, @definition)
+    @@words[self.id] = Word.new(@word, self.id)
   end
 
   def delete
@@ -43,7 +41,11 @@ class Word
 
 
   def self.search(x)
-   @@words.values().select { |word| /#{x}/i.match? word.word }
- end
+    @@words.values().select { |word| /#{x}/i.match? word.word }
+  end
+
+  def definitions
+    Definition.find_by_word(self.id)
+  end
 
 end

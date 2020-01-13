@@ -3,8 +3,8 @@
 
 <h3>Word Definition</h3>
 
-  <% if @word.definitions %>
-      <% @word.definitions.each do |definition| %>
+  <% if @word.definition %>
+      <% @word.definition.each do |definition| %>
         <p><a href="/words/<%= @word.id %>/definitions/<%= definition.id %>"><%= definition.name %></a></p>
       <% end %>
   <% else %>

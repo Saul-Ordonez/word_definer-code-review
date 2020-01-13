@@ -16,9 +16,9 @@ describe '#Word' do
 
   describe('.clear') do
     it("clears all of the words") do
-      word1 = Word.new("Hello", nil, "How are you?")
+      word1 = Word.new("Hello", nil)
       word1.save()
-      word2 = Word.new("Goodbye", nil, "See you later")
+      word2 = Word.new("Goodbye", nil)
       word2.save()
       Word.clear()
       expect(Word.all).to(eq([]))
@@ -27,17 +27,17 @@ describe '#Word' do
 
   describe('#==') do
     it("is the same word if it has the same attributes as another word") do
-      word = Word.new("Hello", nil, "How are you?")
-      word2 = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
+      word2 = Word.new("Hello", nil)
       expect(word).to(eq(word2))
     end
   end
 
   describe('#save') do
     it("saves words into array") do
-      word = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
       word.save()
-      word2 = Word.new("Goodbye", nil, "See you later")
+      word2 = Word.new("Goodbye", nil)
       word2.save()
       expect(Word.all).to(eq([word, word2]))
     end
@@ -45,9 +45,9 @@ describe '#Word' do
 
   describe('#find') do
     it("finds a word by the id") do
-      word = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
       word.save()
-      word2 = Word.new("Goodbye", nil, "See you later")
+      word2 = Word.new("Goodbye", nil)
       word2.save()
       expect(Word.find(word.id)).to(eq(word))
     end
@@ -55,9 +55,9 @@ describe '#Word' do
 
   describe('#delete') do
     it("deletes a word by id") do
-      word = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
       word.save()
-      word2 = Word.new("Goodbye", nil, "See you later")
+      word2 = Word.new("Goodbye", nil)
       word2.save()
       word.delete()
       expect(Word.all).to(eq([word2]))
@@ -66,18 +66,18 @@ describe '#Word' do
 
   describe('#update') do
     it("updates a word by id") do
-      word = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
       word.save()
-      word.update("Goodbye", "See you later")
+      word.update("Goodbye")
       expect(word.word).to(eq("Goodbye"))
     end
   end
 
   describe('.search') do
     it("finds a word") do
-      word = Word.new("Hello", nil, "How are you?")
+      word = Word.new("Hello", nil)
       word.save()
-      word2 = Word.new("Goodbye", nil, "See you later")
+      word2 = Word.new("Goodbye", nil)
       word2.save()
       expect(Word.search(word.word)).to(eq([word]))
     end
