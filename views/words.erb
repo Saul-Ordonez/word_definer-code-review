@@ -1,25 +1,23 @@
+<h1>Word Definer</h1>
 
-<h2>Make up some words and their definitions here!</h2>
-
-<h2><center>Your Words:</center></h2>
+<h3>Available words:</h3>
 
 <% if @words.any? %>
-<% @words.each do |word| %>
-<h3><a href="/words/<%= word.id %>"><%= word.word_name %></a></h3>
-<% end %>
+<ul>
+  <% @words.each do |word| %>
+    <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+  <% end %>
+</ul>
 <% else %>
-<h4>You need to add some words!</h4>
+<p>There are currently no words to display.</p>
 <% end %>
 
-<form action="/words/new" method="get">
-  <button type="submit" name="new">Add a new word here</button>
-</form>
-<br>
+<a href="/words/new">Add a new word</a>
 
-<h3>Word Search</h3>
-<form action="/words">
+<form action="/words" method="get">
   <div class="form-group">
-    <input id="search" name="search" type="text">
+    <label for="search">Search</label>
+    <input id="search" name="search" class="form-control" type="text">
   </div>
-  <button type="submit">Click to Search</button>
+  <button type="submit" class="btn">Go!</button>
 </form>
