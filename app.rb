@@ -24,8 +24,8 @@ get('/words/new') do
 end
 
 post('/words') do
-  name = params[:name]
-  word = Word.new(name, nil)
+  word_name = params[:word_name]
+  word = Word.new(word_name, nil)
   word.save()
   @words = Word.all()
   erb(:words)
@@ -43,7 +43,7 @@ end
 
 patch('/words/:id') do
     @word = Word.find(params[:id].to_i())
-    @word.update(params[:word], params[:image])
+    @word.update(params[:word_name])
   @words = Word.all
   erb(:words)
 end
@@ -62,7 +62,7 @@ end
 
 post('/words/:id/definitions') do
   @word = Word.find(params[:id].to_i())
-  definition = Definition.new(params[:definition_text], @word.id, nil)
+  definition = Definition.new(params[:definition_content], @word.id, nil)
   definition.save()
   erb(:word)
 end

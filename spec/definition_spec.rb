@@ -1,7 +1,7 @@
-require 'rspec'
-require 'definition'
-require 'word'
-require 'pry'
+require('pry')
+require('rspec')
+require('definition')
+require('word')
 
 describe '#Definition' do
 
@@ -65,7 +65,7 @@ describe '#Definition' do
       definition = Definition.new("How are you", @word.id, nil)
       definition.save()
       definition.update("See you later", @word.id)
-      expect(definition.definition).to(eq("See you later"))
+      expect(definition.definition_content).to(eq("See you later"))
     end
   end
 

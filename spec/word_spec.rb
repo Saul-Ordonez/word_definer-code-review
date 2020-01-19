@@ -1,5 +1,6 @@
 require('pry')
 require('rspec')
+require('definition')
 require('word')
 
 describe '#Word' do
@@ -69,7 +70,7 @@ describe '#Word' do
       word = Word.new("Hello", nil)
       word.save()
       word.update("Goodbye")
-      expect(word.word).to(eq("Goodbye"))
+      expect(word.word_name).to(eq("Goodbye"))
     end
   end
 
@@ -79,7 +80,7 @@ describe '#Word' do
       word.save()
       word2 = Word.new("Goodbye", nil)
       word2.save()
-      expect(Word.search(word.word)).to(eq([word]))
+      expect(Word.search(word.word_name)).to(eq([word]))
     end
   end
 
